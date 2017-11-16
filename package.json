@@ -1,0 +1,36 @@
+{
+  "name": "AwesomeProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "tsc": "tsc",
+    "clean": "rimraf artifacts",
+    "build": "npm run clean && npm run tsc --",
+    "lint": "tslint src/**/*.ts",
+    "watch": "npm run build -- -w",
+    "start:ios": "npm run build && concurrently -r 'npm run watch' 'react-native run-ios'",
+    "start:android": "npm run build && concurrently -r 'npm run watch' 'react-native run-android'"
+  },
+  "dependencies": {
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.44.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.6",
+    "@types/react": "^16.0.23",
+    "@types/react-native": "^0.50.7",
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "concurrently": "^3.5.0",
+    "jest": "21.2.1",
+    "react-test-renderer": "16.0.0-alpha.6",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
